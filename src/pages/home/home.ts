@@ -44,15 +44,20 @@ export class HomePage {
     }
 
     teste() {
+
         KeySelector.select("erik", (sucess) => {
             console.log("sucess in keyselector", sucess)
             let cert = JSON.parse(sucess)
             PDFDigiSign.signWithAlias(this.uri, cert.alias, "Erik", "Brasilia", "assinando consulta", this.imageData, 1, 0, 0, 100, 100, (response) => {
                 console.log("voltou 1", response)
+                
             }, (error) => {
                 console.log("voltou 2", error);
 
             });
         }, (error) => { console.log("error in keyselector", error) })
+
     }
+
+
 }
